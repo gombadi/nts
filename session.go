@@ -49,7 +49,7 @@ type Session struct {
 	cipherC2S cipher.AEAD          // client-to-server authentication & encryption
 	cipherS2C cipher.AEAD          // server-to-client authentication & encryption
 	uniqueID  []byte               // most recently transmitted unique ID
-	State     *TLS.ConnectionState // capture the nts connection details
+	State     *tls.ConnectionState // capture the nts connection details
 }
 
 // SessionOptions contains options for customizing the behavior of an NTS
