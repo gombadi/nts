@@ -69,8 +69,8 @@ func (s *Session) performKeyExchange() error {
 	defer conn.Close()
 
 	// Verify that the negotiated protocol is NTS-KE.
-	s.state := conn.ConnectionState()
-	if s.state.NegotiatedProtocol != ntskeProtocol {
+	s.State := conn.ConnectionState()
+	if S.state.NegotiatedProtocol != ntskeProtocol {
 		return errors.New("key exchange: NTS-KE protocol not negotiated")
 	}
 
