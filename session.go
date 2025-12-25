@@ -42,13 +42,14 @@ var (
 // session's internal state is updated as NTP queries are made against an
 // NTS-capable NTP server.
 type Session struct {
-	options   SessionOptions // options provided at session creation time
-	ntskeAddr string         // "host:port" address used for NTS key exchange
-	ntpAddr   string         // "host:port" address to use for NTP service
-	cookies   cookieJar      // container for cookies consumed by NTP queries
-	cipherC2S cipher.AEAD    // client-to-server authentication & encryption
-	cipherS2C cipher.AEAD    // server-to-client authentication & encryption
-	uniqueID  []byte         // most recently transmitted unique ID
+	options   SessionOptions       // options provided at session creation time
+	ntskeAddr string               // "host:port" address used for NTS key exchange
+	ntpAddr   string               // "host:port" address to use for NTP service
+	cookies   cookieJar            // container for cookies consumed by NTP queries
+	cipherC2S cipher.AEAD          // client-to-server authentication & encryption
+	cipherS2C cipher.AEAD          // server-to-client authentication & encryption
+	uniqueID  []byte               // most recently transmitted unique ID
+	State     *TLS.ConnectionState // capture the nts connection details
 }
 
 // SessionOptions contains options for customizing the behavior of an NTS
