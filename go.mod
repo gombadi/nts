@@ -1,4 +1,4 @@
-module github.com/beevik/nts
+module github.com/gombadi/nts
 
 go 1.17
 
